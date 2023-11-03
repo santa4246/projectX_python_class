@@ -1,34 +1,46 @@
 import csv
-import json
-from datetime import datetime
 
-# 로그 파일을 읽어 리스트로 변환
-with open('mission_computer_main.log', 'r') as file:
-    reader = csv.reader(file)
-    header = next(reader)
-    logs_list = []
-    for row in reader:
-        timestamp = datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S')
-        event = row[1]
-        message = row[2]
-        logs_list.append({'timestamp': timestamp, 'event': event, 'message': message})
+def main():
+    file_name = 'Mars_Base_Inventory_List.csv'
+    try:
+        # 수행과제
+        read_csv(file_name)
+        
+        # 보너스과제
 
-# 리스트를 화면에 출력
-print("로그 리스트:")
-print(logs_list)
+    except IOError as err:
+        print("I/O error: {0}".format(err))
 
-# 리스트를 시간의 역순으로 정렬
-logs_list.sort(key=lambda x: x['timestamp'], reverse=True)
+def read_csv(file_name):
+    columns = {}
 
-# 정렬된 리스트를 화면에 출력
-print("시간의 역순으로 정렬된 로그 리스트:")
-print(logs_list)
+    with open(file_name, 'r') as csv_file:
+        csv_reader = csv.reader(csv_file)
+        headers = next(csv_reader)
+        
+        for header in headers:
+            columns[header] = []
 
-# 리스트를 사전 객체로 변환
-logs_dict = {'logs': logs_list}
+        for row in csv_reader:
+            for header, value in zip(headers, row):
+                columns[header].append(value)
 
-# 사전 객체를 JSON 파일로 저장
-with open('mission_computer_main.json', 'w') as json_file:
-    json.dump(logs_dict, json_file)
+    for header, values in columns.items():
+        print(f'{header}: {values}')
 
-print("mission_computer_main.json 파일이 생성되었습니다.")
+    sorted_indices = sorted(range(len(columns['Flammability'])), key=lambda k: columns['Flammability'][k], reverse = True)
+    
+    sorted_Substance = [columns['Substance'][i] for i in sorted_indices]
+    sorted_Weight = [columns['Weight (g/cm쨀)'][i] for i in sorted_indices]
+    sorted_Specific = [columns['Specific Gravity'][i] for i in sorted_indices]
+    sorted_Strength = [columns['Strength'][i] for i in sorted_indices]
+    sorted_Flammability = [columns['Flammability'][i] for i in sorted_indices]
+
+    print(sorted_Substance)
+    print(sorted_Weight)
+    print(sorted_Specific)
+    print(sorted_Strength)
+    print(sorted_Flammability)
+
+if __name__ == "__main__":
+    main()
