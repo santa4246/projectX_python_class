@@ -14,8 +14,7 @@ def print_log(file_name):
     try:
         with open(file_name) as infile:
             for in_line in infile.readlines():
-                pass
-                # print(in_line)
+                print(in_line)
     except IOError as err:
         print("I/O error: {0}".format(err))
 

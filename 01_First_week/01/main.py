@@ -9,7 +9,6 @@ def main():
     print_log_reverse(file_name)
     save_err_log(file_name)
 
-
 def print_hello():
     print('Hello Mars')
 
@@ -18,7 +17,7 @@ def print_log(file_name):
         with open(file_name) as infile :
             for in_line in infile.readlines():
                 print(in_line)
-    except IOError as err:
+    except IOError as err :
         print("I/O error: {0}".format(err))
 
 def print_log_reverse(file_name):
@@ -38,7 +37,6 @@ def save_err_log(file_name):
             f.close()
     except IOError as err:
         print("I/O error: {0}".format(err))
-
 
 if __name__ == "__main__":
     main()

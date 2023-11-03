@@ -24,8 +24,10 @@ def read_csv(file_name):
                 columns[header].append(value)
 
     for header, values in columns.items():
-        print(f'{header}: {values}')
-
+        # print(f'{header}: {values}')
+        pass
+    
+    print(sorted(list(map(float, columns['Flammability'])), reverse = True))
 
 if __name__ == "__main__":
     main()
