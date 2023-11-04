@@ -3,13 +3,10 @@ import csv
 def main():
     file_name = 'Mars_Base_Inventory_List.csv'
     try:
-        # 수행과제
         read_csv(file_name)
-        
-        # 보너스과제
 
     except IOError as err:
-        print("I/O error: {0}".format(err))
+        print("error: {0}".format(err))
 
 def read_csv(file_name):
     columns = {}
@@ -41,6 +38,11 @@ def read_csv(file_name):
     print(sorted_Specific)
     print(sorted_Strength)
     print(sorted_Flammability)
+
+def print_specific_value(float_list):
+    for index, value in enumerate(float_list):
+        if value >= 0.7:
+            print(f"인덱스: {index}, 값: {value}")
 
 if __name__ == "__main__":
     main()

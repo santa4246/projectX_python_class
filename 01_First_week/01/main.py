@@ -1,16 +1,14 @@
 def main():
     file_name = 'mission_computer_main.log'
     try:
-        # 수행과제
         print_hello()
         print_log(file_name)
 
-        # 보너스과제
         print_log_reverse(file_name)
         save_err_log(file_name)
 
     except IOError as err :
-        print("I/O error: {0}".format(err))
+        print("error: {0}".format(err))
 
 def print_hello():
     print('Hello Mars')
