@@ -30,3 +30,13 @@ file mars_base_main_parts-001.csv
 file mars_base_main_parts-002.csv
 
 file mars_base_main_parts-003.csv
+
+
+## 제약사항
+
+
+· Python에서 기본 제공되는 명령어만 사용해야 하며 별도의 라이브러리나 패키지를 사용해서는 안된다.
+
+· numpy는 추가로 사용 할 수 있다.
+
+· 파일로 저장하는 부분에는 반드시 예외처리가 되어 있어야 한다.
