@@ -6,8 +6,8 @@ def main():
 
         print_log_reverse(file_name)
         save_err_log(file_name)
-
-    except IOError as err :
+        
+    except Exception as err :
         print("error: {0}".format(err))
 
 def print_hello():

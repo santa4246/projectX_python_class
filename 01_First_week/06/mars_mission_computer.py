@@ -30,8 +30,8 @@ def main():
         env_values = ds.get_env()
         print(env_values)
 
-    except IOError as err:
-        print("I/O error: {0}".format(err))
+    except Exception as err :
+        print("error: {0}".format(err))
 
 if __name__ == "__main__":
     main()

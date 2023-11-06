@@ -1,5 +1,3 @@
-import json
-
 def main():
     file_name = 'mission_computer_main.log'
     try:
@@ -11,7 +9,7 @@ def main():
         
         search_text(log_dict_list)
         
-    except IOError as err:
+    except Exception as err :
         print("error: {0}".format(err))
 
 
@@ -50,8 +48,16 @@ def reverse_list(log_list):
     print(log_list[::-1])
 
 def save_dict_to_jsonfile(log_dict_list):
+    log_dict_json = '['
+    for item in log_dict_list:
+        log_dict_json += '{"' + list(item.keys())[0] + '":"' + list(item.values())[0] + '"},'
+        log_dict_json += '\n'
+    log_dict_json = log_dict_json.rstrip(',')
+    log_dict_json += ']'
+
     with open('mission_computer_main.json', 'w') as json_file:
-        json.dump(log_dict_list, json_file)
+        json_file.write(log_dict_json)
+        json_file.write('\n')
 
 def search_text(log_dict_list):
     search_string = 'noticeable'

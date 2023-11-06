@@ -46,8 +46,11 @@ class MissionComputer:
 
 
 def main():
-    RunComputer = MissionComputer()
-    RunComputer.get_sensor_data()
+    try:
+        RunComputer = MissionComputer()
+        RunComputer.get_sensor_data()
+    except Exception as err :
+        print("error: {0}".format(err))
 
 
 if __name__ == "__main__":

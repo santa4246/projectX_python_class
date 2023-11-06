@@ -5,7 +5,7 @@ def main():
     try:
         read_csv(file_name)
 
-    except IOError as err:
+    except Exception as err :
         print("error: {0}".format(err))
 
 def read_csv(file_name):

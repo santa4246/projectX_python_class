@@ -10,8 +10,8 @@ def main():
         valid_values = get_parts_average(parts)
         save_csv_under_fifty(valid_values)
         
-    except IOError as err:
-        print("I/O error: {0}".format(err))
+    except Exception as err :
+        print("error: {0}".format(err))
 
 def get_csv(file_path):
     return np.genfromtxt(file_path, delimiter=',', skip_header=1)

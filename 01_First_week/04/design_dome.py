@@ -12,8 +12,8 @@ def main():
         diameter = input_diameter()
         material = input_material()
         thickness, area, weight = sphere_area(diameter, material)
-    except IOError as err:
-        print("I/O error: {0}".format(err))
+    except Exception as err :
+        print("error: {0}".format(err))
 
 def input_diameter():
     while True:
