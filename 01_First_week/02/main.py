@@ -60,12 +60,13 @@ def save_dict_to_jsonfile(log_dict_list):
         json_file.write('\n')
 
 def search_text(log_dict_list):
-    search_string = 'noticeable'
+    search_string = input('찾을 텍스트를 입력하세요. \n')
 
     for log_dict in log_dict_list:
         found_keys = [key for key, value in log_dict.items() if search_string in value]
         if found_keys:
             print(f"'{search_string}'을(를) 포함한 키: {found_keys}")
+            print(log_dict)
 
 if __name__ == "__main__":
     main()
