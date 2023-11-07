@@ -28,7 +28,7 @@ def read_csv(file_name):
     sorted_indices = sorted(range(len(columns['Flammability'])), key=lambda k: columns['Flammability'][k], reverse = True)
     
     sorted_Substance = [columns['Substance'][i] for i in sorted_indices]
-    sorted_Weight = [columns['Weight (g/cm쨀)'][i] for i in sorted_indices]
+    sorted_Weight = [columns['Weight (g/cm3)'][i] for i in sorted_indices]
     sorted_Specific = [columns['Specific Gravity'][i] for i in sorted_indices]
     sorted_Strength = [columns['Strength'][i] for i in sorted_indices]
     sorted_Flammability = [columns['Flammability'][i] for i in sorted_indices]
