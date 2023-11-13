@@ -42,7 +42,7 @@ class JarvisRecorder:
 
     def save_audio(self, frames):
         now = datetime.datetime.now()
-        filename = f'{now.strftime('%Y%m%d-%H%M%S')}.wav'
+        filename = f'{now.strftime("%Y%m%d-%H%M%S")}.wav'
         file_path = os.path.join(self.record_folder, filename)
 
         wf = wave.open(file_path, 'wb')

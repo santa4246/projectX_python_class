@@ -25,6 +25,14 @@ class JarvisRecorder:
         self.audio = pyaudio.PyAudio()
         self.recognizer = sr.Recognizer()
 
+    def process_recordings(self):
+        recording_files = os.listdir(self.record_folder)
+
+        for file_name in recording_files:
+            if file_name.endswith(".wav"):
+                file_path = os.path.join(self.record_folder, file_name)
+                self.convert_to_text(file_path)
+
     def convert_to_text(self, audio_file):
         with sr.AudioFile(audio_file) as source:
             audio_data = self.recognizer.record(source)
@@ -52,7 +60,7 @@ class JarvisRecorder:
 def main():
     try:
         recorder = JarvisRecorder()
-        recorder.convert_to_text('records')
+        recorder.process_recordings()
         
     except Exception as err :
         print('error: {0}'.format(err))
