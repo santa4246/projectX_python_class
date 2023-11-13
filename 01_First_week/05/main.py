@@ -5,7 +5,7 @@ def main():
         arr1 = get_csv('mars_base_main_parts/mars_base_main_parts-001.csv')
         arr2 = get_csv('mars_base_main_parts/mars_base_main_parts-002.csv')
         arr3 = get_csv('mars_base_main_parts/mars_base_main_parts-003.csv')
-        parts = mrege_csv(arr1, arr2, arr3)
+        parts = merge_csv(arr1, arr2, arr3)
         
         valid_values = get_parts_average(parts)
         save_csv_under_fifty(valid_values)
@@ -16,7 +16,7 @@ def main():
 def get_csv(file_path):
     return np.genfromtxt(file_path, delimiter=',', skip_header=1)
 
-def mrege_csv(arr1, arr2, arr3):
+def merge_csv(arr1, arr2, arr3):
     return np.concatenate((arr1, arr2, arr3), axis=0)
 
 def get_parts_average(parts):
