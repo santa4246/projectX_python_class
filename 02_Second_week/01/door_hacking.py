@@ -56,9 +56,9 @@ def main():
         result = unlock_zip(file,password_length,password_list,password_file)
         print(result)
     except zipfile.BadZipFile:
-        print("올바르지 않은 ZIP 파일 형식.")
+        print('올바르지 않은 ZIP 파일 형식.')
     except RuntimeError as e:
-        print("ZIP 파일 암호 해제 중 오류 발생:", e)
+        print('ZIP 파일 암호 해제 중 오류 발생:', e)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

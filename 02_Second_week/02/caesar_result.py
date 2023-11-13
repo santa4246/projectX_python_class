@@ -20,7 +20,7 @@ def caesar_cipher_decode(target_text, shift):
 def decrypt_and_print_result(password, target_text):
     for shift in range(26):
         decoded_result = caesar_cipher_decode(target_text, shift)
-        print(f"Shift: {shift}, Decoded Result: {decoded_result}")
+        print(f'Shift: {shift}, Decoded Result: {decoded_result}')
 
 # 파일에서 암호를 읽어옴
 password_file_path = 'password.txt'
@@ -31,11 +31,11 @@ with open(password_file_path, 'r') as target_file:
     target_text = target_file.read().strip()
 
 # 자리수에 따라서 해독된 결과 출력
-print("1차 해독 결과:")
+print('1차 해독 결과:')
 decrypt_and_print_result(password, target_text)
 
 # 추가 질문: 몇 번째 자리 수로 암호가 해독되었는지 입력
-shift_input = input("몇 번째 자리수로 암호가 해독되었나요? (숫자 입력): ")
+shift_input = input('몇 번째 자리수로 암호가 해독되었나요? (숫자 입력): ')
 
 # 결과를 저장할 경로
 result_file_path = 'result.txt'
@@ -44,11 +44,11 @@ try:
     shift = int(shift_input)
     if 0 <= shift < 26:
         decoded_result = caesar_cipher_decode(target_text, shift)
-        with open(result_file_path, "w") as result_file:
+        with open(result_file_path, 'w') as result_file:
             result_file.write(decoded_result)
-        print(f"암호가 {shift}번째 자리수로 해독됩니다.")
-        print(f"해독된 결과를 {result_file_path}에 저장했습니다.")
+        print(f'암호가 {shift}번째 자리수로 해독됩니다.')
+        print(f'해독된 결과를 {result_file_path}에 저장했습니다.')
     else:
-        print("올바른 범위의 자리 수를 입력하세요 (0~25).")
+        print('올바른 범위의 자리 수를 입력하세요 (0~25).')
 except ValueError:
-    print("올바른 숫자를 입력하세요.")
+    print('올바른 숫자를 입력하세요.')
